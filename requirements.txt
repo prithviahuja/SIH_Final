@@ -1,0 +1,7 @@
+pandas
+langchain-core
+langchain-groq
+sqlalchemy
+thefuzz
+plotly
+openpyxl
