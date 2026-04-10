@@ -1,4 +1,4 @@
-# Smart Groundwater Assistant
+# Jalmitra
 
 A full-stack application for analyzing and visualizing groundwater data in India, featuring AI-powered chat assistance and interactive maps.
 
