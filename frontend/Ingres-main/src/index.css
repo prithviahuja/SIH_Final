@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 100% 97%;
+    --foreground: 215 25% 15%;
+
+    --card: 210 50% 98%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 210 50% 98%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 200 85% 25%;
+    --primary-foreground: 210 100% 98%;
+
+    --secondary: 195 80% 88%;
+    --secondary-foreground: 200 85% 25%;
+
+    --muted: 195 60% 92%;
+    --muted-foreground: 200 20% 45%;
+
+    --accent: 175 70% 35%;
+    --accent-foreground: 210 100% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 195 40% 85%;
+    --input: 195 40% 85%;
+    --ring: 200 85% 25%;
+
+    /* Water-themed gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(200 85% 25%) 0%, hsl(195 80% 35%) 50%, hsl(175 70% 45%) 100%);
+    --gradient-flow: linear-gradient(90deg, hsl(195 80% 88%) 0%, hsl(185 75% 82%) 50%, hsl(175 70% 88%) 100%);
+    --gradient-depth: linear-gradient(180deg, hsl(200 60% 15%) 0%, hsl(200 85% 25%) 100%);
+    
+    /* Shadows */
+    --shadow-water: 0 10px 30px -10px hsl(200 85% 25% / 0.3);
+    --shadow-flow: 0 4px 20px -4px hsl(195 60% 40% / 0.25);
+    
+    /* Animation variables */
+    --transition-flow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 60% 8%;
+    --foreground: 195 80% 95%;
+
+    --card: 200 50% 10%;
+    --card-foreground: 195 80% 95%;
+
+    --popover: 200 50% 10%;
+    --popover-foreground: 195 80% 95%;
+
+    --primary: 195 80% 88%;
+    --primary-foreground: 200 85% 15%;
+
+    --secondary: 200 40% 20%;
+    --secondary-foreground: 195 80% 88%;
+
+    --muted: 200 40% 20%;
+    --muted-foreground: 195 30% 65%;
+
+    --accent: 175 60% 40%;
+    --accent-foreground: 195 80% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 30% 25%;
+    --input: 200 30% 25%;
+    --ring: 195 80% 88%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.ripple-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 240, 0.20) 20%, transparent 70%) center/200px 200px;
+  opacity: 0.30; /* stronger visibility */
+  pointer-events: none;
+}
+
+.ripple-overlay.slow {
+  background-size: 280px 280px;
+  animation: ripple-smooth 15s infinite ease-in-out alternate;
+}
+
+.ripple-overlay.fast {
+  background-size: 180px 180px;
+  animation: ripple-smooth 8s infinite ease-in-out alternate;
+  opacity: 0.2;
+}
+
+@keyframes ripple-smooth {
+  0% {
+    background-position: 0 0;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 150px 100px;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 300px 200px;
+    transform: scale(1);
+  }
+}
